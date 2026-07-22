@@ -1,0 +1,30 @@
+# Contains local provider binaries, modules, and cached plugins
+.terraform/
+
+# Exclude local state files (can contain unencrypted sensitive secrets)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Exclude variable files containing secret data (e.g., passwords, keys)
+*.tfvars
+*.tfvars.json
+
+# Ignore local override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore transient lock files during runs
+.terraform.tfstate.lock.info
+
+# Ignore local CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore speculative execution plans (if you output plans locally)
+*tfplan*
