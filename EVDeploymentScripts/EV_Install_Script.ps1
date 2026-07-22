@@ -1,4 +1,4 @@
-Store installation media on S3:
+#Store installation media on S3:
 s3://enterprise-vault-installers/
 Enterprise Vault Installation Script
 $EVMedia = " s3://enterprise-vault-installers/"
