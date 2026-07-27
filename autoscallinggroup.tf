@@ -22,9 +22,23 @@ resource "aws_autoscaling_group" "terraform_asg" {
   }
 }
 
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"] # Canonical
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-resolute-26.04-amd64-server-*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
 resource "aws_launch_template" "launch-asg" {
   name          = "my-launch-asg"
-  image_id      = var.ami_id
+  image_id      = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   key_name      = var.key_name
   depends_on    = [aws_nat_gateway.ev_nat]

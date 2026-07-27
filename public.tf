@@ -19,7 +19,7 @@ resource "aws_nat_gateway" "ev_nat" {
 resource "aws_subnet" "public_b" {
   vpc_id            = aws_vpc.ev_vpc.id
   cidr_block        = var.public_subnets.b
-  availability_zone = var.avilablity_zones[1]
+  availability_zone = var.availability_zones[1]
   tags = {
     Name = "public_subnet_az_b"
   }
@@ -28,7 +28,7 @@ resource "aws_subnet" "public_b" {
 resource "aws_subnet" "public_a" {
   vpc_id            = aws_vpc.ev_vpc.id
   cidr_block        = var.public_subnets.a
-  availability_zone = var.avilablity_zones[0]
+  availability_zone = var.availability_zones[0]
   tags = {
     Name = "public_subnet_az_a"
   }
@@ -123,7 +123,7 @@ resource "aws_lb_target_group_attachment" "web_attach_b" {
 
 # Bastian host
 resource "aws_instance" "bastian_host" {
-  ami                         = var.ami_id
+  ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   subnet_id                   = aws_subnet.public_a.id
   associate_public_ip_address = true

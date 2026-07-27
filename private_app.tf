@@ -2,7 +2,7 @@ resource "aws_subnet" "private_subnet_a" {
   vpc_id                  = aws_vpc.ev_vpc.id
   map_public_ip_on_launch = false
   cidr_block              = var.private_app_subnets.a
-  availability_zone       = var.avilablity_zones[0]
+  availability_zone       = var.availability_zones[0]
   tags = {
     Name = "Private_app_subnet_az_a"
   }
@@ -12,7 +12,7 @@ resource "aws_subnet" "private_subnet_b" {
   vpc_id                  = aws_vpc.ev_vpc.id
   map_public_ip_on_launch = false
   cidr_block              = var.private_app_subnets.b
-  availability_zone       = var.avilablity_zones[1]
+  availability_zone       = var.availability_zones[1]
   tags = {
     Name = "Private_app_subnet_az_b"
   }
@@ -41,6 +41,19 @@ resource "aws_route_table_association" "rt_associate_private_b" {
   subnet_id      = aws_subnet.private_subnet_b.id
   route_table_id = aws_route_table.rt_private_b.id
 }
+
+resource "aws_route" "pvt_route_a" {
+  route_table_id         = aws_route_table.rt_private_a.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id = aws_nat_gateway.ev_nat.id
+}
+
+resource "aws_route" "pvt_route_b" {
+  route_table_id         = aws_route_table.rt_private_b.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id = aws_nat_gateway.ev_nat.id
+}
+
 
 /*resource "aws_instance" "pvt_instance_a" {
   ami = var.ami_id

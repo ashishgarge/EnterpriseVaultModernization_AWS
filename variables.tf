@@ -29,7 +29,7 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "avilablity_zones" {
+variable "availability_zones" {
   description = "The availablity zones for the default VPC."
   type        = list(string)
   default     = ["us-east-1a", "us-east-1b"]
@@ -62,12 +62,6 @@ variable "key_name" {
   description = "The name of the key pair to use for SSH access."
   type        = string
   default     = "keypair"
-}
-
-variable "ami_id" {
-  description = "The ID of the AMI to use for the EC2 instances."
-  type        = string
-  default     = "ami-0b6d9d3d33ba97d99"
 }
 
 

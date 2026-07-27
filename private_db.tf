@@ -2,7 +2,7 @@ resource "aws_subnet" private_subnet_db_a {
     vpc_id = aws_vpc.ev_vpc.id
     map_public_ip_on_launch = false
     cidr_block = var.private_db_subnets.a
-    availability_zone    = var.availability_zones[0]
+    availability_zone = var.availability_zones[0]
     tags = {
         Name = "private_subnet_db_az_a"
     }
@@ -12,7 +12,7 @@ resource "aws_subnet" private_subnet_db_b {
     vpc_id = aws_vpc.ev_vpc.id
     map_public_ip_on_launch = false
     cidr_block = var.private_db_subnets.b
-    availability_zone    = var.availability_zones[1]
+    availability_zone = var.availability_zones[1]
     tags = {
         Name = "private_subnet_db_az_b"
     }
