@@ -55,29 +55,3 @@ resource "aws_route" "pvt_route_b" {
 }
 
 
-/*resource "aws_instance" "pvt_instance_a" {
-  ami = var.ami_id
-  instance_type = var.instance_type
-  subnet_id = aws_subnet.private_subnet_a.id
-  associate_public_ip_address = false
-  vpc_security_group_ids = [aws_security_group.webserver_sg.id]
-  key_name = var.key_name
-  user_data = file("${path.module}/userdata.sh")
-
-  depends_on = [aws_nat_gateway.ev_nat]
-
-  tags = { Name = "private-web-server_us-east-1a" }
-}
-
-resource "aws_instance" "pvt_instance_b" {
-  ami = var.ami_id
-  instance_type = var.instance_type
-  subnet_id = aws_subnet.private_subnet_b.id
-  associate_public_ip_address = false
-  vpc_security_group_ids = [aws_security_group.webserver_sg.id]
-  key_name = var.key_name
-  user_data = file("${path.module}/userdata.sh")
-  depends_on = [aws_nat_gateway.ev_nat]
-  tags = { Name = "private-web-server_us-east-1b" }
-}*/
-
