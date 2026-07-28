@@ -80,7 +80,7 @@ resource "aws_security_group" "bastion_sg" {
   }
 }
 
-/*resource "aws_security_group" "db_security_group" {
+resource "aws_security_group" "db_security_group" {
   name        = "db-security-group"
   description = "Allow inbound traffic from webserver security group"
   vpc_id      = aws_vpc.ev_vpc.id
@@ -98,7 +98,7 @@ resource "aws_security_group" "bastion_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}*/
+}
 
 resource "aws_security_group" "asg_sg" {
   name        = "asg-security-group"

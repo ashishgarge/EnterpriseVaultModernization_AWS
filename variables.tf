@@ -64,11 +64,24 @@ variable "key_name" {
   default     = "keypair"
 }
 
-/*variable "db_name" {
+variable "db_name" {
   description = "The name of the database to create."
   type        = string
   default     = "mydatabase"
+  sensitive   = true
 }
-*/
+
+variable "db_username" {
+  description = "The username for the database."
+  type        = string
+  default     = "admin"
+  sensitive   = true
+}
+
+variable "db_password" {
+  description = "The password for the database."
+  type        = string
+  sensitive   = true
+}
 
 
