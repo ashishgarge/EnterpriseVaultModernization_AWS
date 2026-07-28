@@ -80,6 +80,26 @@ resource "aws_security_group" "bastion_sg" {
   }
 }
 
+/*resource "aws_security_group" "db_security_group" {
+  name        = "db-security-group"
+  description = "Allow inbound traffic from webserver security group"
+  vpc_id      = aws_vpc.ev_vpc.id
+
+  ingress {
+    from_port       = 1433
+    to_port         = 1433
+    protocol        = "tcp"
+    security_groups = [aws_security_group.webserver_sg.id]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}*/
+
 resource "aws_security_group" "asg_sg" {
   name        = "asg-security-group"
   description = "Allow traffic for the Auto Scaling Group instances"
@@ -105,3 +125,4 @@ resource "aws_security_group" "asg_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
