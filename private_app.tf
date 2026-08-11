@@ -45,13 +45,13 @@ resource "aws_route_table_association" "rt_associate_private_b" {
 resource "aws_route" "pvt_route_a" {
   route_table_id         = aws_route_table.rt_private_a.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id = aws_nat_gateway.ev_nat.id
+  nat_gateway_id         = aws_nat_gateway.ev_nat.id
 }
 
 resource "aws_route" "pvt_route_b" {
   route_table_id         = aws_route_table.rt_private_b.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id = aws_nat_gateway.ev_nat.id
+  nat_gateway_id         = aws_nat_gateway.ev_nat.id
 }
 
 

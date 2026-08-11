@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "terraform_asg" {
-  name             = "ev-asg"   # This is the name of the ASG that will be created in AWS
+  name             = "ev-asg"             # This is the name of the ASG that will be created in AWS
   min_size         = var.min_size         # Reference the variable 'min_size' to define the lower bound of the ASG size
   max_size         = var.max_size         # Reference the variable 'max_size' to define the upper bound of the ASG size
   desired_capacity = var.desired_capacity # Reference the variable 'desired_capacity' to set the number of instances at the start
@@ -18,7 +18,7 @@ resource "aws_autoscaling_group" "terraform_asg" {
   tag {
     key                 = "Name"
     value               = "EnterpriseVaultWebServer" # Tag value to be applied to instances launched by the ASG
-    propagate_at_launch = true            # Ensure that this tag is propagated to instances when they are launched
+    propagate_at_launch = true                       # Ensure that this tag is propagated to instances when they are launched
   }
 }
 
