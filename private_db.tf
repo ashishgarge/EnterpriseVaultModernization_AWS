@@ -67,6 +67,9 @@ resource "aws_db_instance" "ev_db_instance" {
   publicly_accessible    = false
   vpc_security_group_ids = [aws_security_group.db_security_group.id]
   db_subnet_group_name   = aws_db_subnet_group.ev_db_subnet_group.name
+  tags = {
+    Name = "EnterpriseVaultDBInstance"
+  }
 }
 
 
