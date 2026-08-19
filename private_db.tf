@@ -54,15 +54,15 @@ resource "aws_db_subnet_group" "ev_db_subnet_group" {
 }
 
 resource "aws_db_instance" "ev_db_instance" {
-  allocated_storage      = 5
-  storage_type           = "gp2"
+  allocated_storage      = 20
+  storage_type           = "gp3"
   engine                 = "sqlserver-ex"
   engine_version         = "15.00"
   instance_class         = "db.t3.micro"
-  db_name                = var.db_name
+  #db_name                = var.db_name
   username               = var.db_username
   password               = var.db_password
-  parameter_group_name   = "default.mssql15.00"
+  parameter_group_name   = "default.sqlserver-ex-15.0"
   skip_final_snapshot    = true
   publicly_accessible    = false
   vpc_security_group_ids = [aws_security_group.db_security_group.id]
