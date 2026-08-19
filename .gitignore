@@ -29,3 +29,5 @@ terraform.rc
 
 # Ignore speculative execution plans (if you output plans locally)
 *tfplan*
+
+*.txt
