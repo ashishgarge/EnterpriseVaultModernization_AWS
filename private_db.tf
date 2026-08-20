@@ -54,11 +54,11 @@ resource "aws_db_subnet_group" "ev_db_subnet_group" {
 }
 
 resource "aws_db_instance" "ev_db_instance" {
-  allocated_storage      = 20
-  storage_type           = "gp3"
-  engine                 = "sqlserver-ex"
-  engine_version         = "15.00"
-  instance_class         = "db.t3.micro"
+  allocated_storage = 20
+  storage_type      = "gp3"
+  engine            = "sqlserver-ex"
+  engine_version    = "15.00"
+  instance_class    = "db.t3.micro"
   #db_name                = var.db_name
   username               = var.db_username
   password               = var.db_password
